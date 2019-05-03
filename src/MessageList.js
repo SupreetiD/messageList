@@ -32,7 +32,10 @@ componentDidMount() {
  * Handle form input field changes & update the state
  */
 handleAdd() {
-  const toInsert = {message: this.state.messageInput, status: this.state.selectedOption}
+  const toInsert = {message: this.state.messageInput,
+                    sender_picture: "http://downloadicons.net/sites/default/files/women-business-user-icon-44928.png",
+                    sender: "Supreeti",
+                    status: this.state.selectedOption}
   axios.post(this.UrlApi, toInsert)
   .then((res) => {
    this.state.messages.push(res.data);
@@ -45,7 +48,6 @@ handleAdd() {
  */
 onChange(event) {
   let {name: fieldName, value} = event.target;
-  console.log(event.target.name, event.target.value)
   this.setState({
     [fieldName]: value
   });
@@ -53,50 +55,62 @@ onChange(event) {
 
   render() {
     return(
-      <div className="row">
-      <div className="message-list col-md-8 col-sm-6">
-      {this.state.messages.map((detail, index) =>
-          <div className="card-body msg-card-body " key={index}>
-          {detail.status ==="public" ?
-            <div className="d-flex justify-content-start">
-              <div className="msg-container">
-              {detail.message}
-                <span className="msg-time">
-                  9:12 AM, Today
-                </span>
-              </div>
-            </div>
-             :<p>private</p> }
-          </div>
-        )}
-        </div>
-        <div className= "col-md-4 col-sm-6 user-input">
-          <textarea name="messageInput"
-            value={this.state.messageInput}
-            onChange={this.onChange}
-            placeholder="Type your message..."
-            cols="30" rows="5">
-          </textarea>
-          <br/><br/>
-          {/*If private selected, message is hidden else message is visible*/}
-          <input className="radio-btn" type="radio"
-              name="selectedOption"
-              value= "private"
-              onChange={this.onChange}
-              checked={this.state.selectedOption === "private"} />
-              <label>Private</label>
-          <input className="radio-btn" type="radio"
-              name="selectedOption"
-              value= "public"
-              onChange={this.onChange}
-              checked={this.state.selectedOption === "public"} />
-              <label>Public</label>
-              <br/>
-              <br/>
-          <button className="action-menu-btn" onClick={this.handleAdd} type="submit">Add</button>
-          </div>
-        </div>
-    );
+      <div>
+      <h2> Messages </h2>
+      {this.state.messages.map((detail, index) => {
+      return (
+      <article className="card"  key={index}>
+      {detail.status ==="public" ?
+      <div>
+      <span className="sender-img">
+      <img src={detail.sender_picture} />
+      </span>
+      <span className="sender-text">
+        <h2 className="card-sender">{detail.sender}</h2>
+        <br/>
+        <h3 className="card-message">{detail.message}</h3>
+      </span>
+      </div>
+      :<p>private</p>
+    }
+      </article>
+      )
+    })
+  }
+  <div className= "user-input">
+    <input type="text" autoComplete="off" className= "type-input"
+      name="messageInput"
+      value={this.state.messageInput}
+      onChange={this.onChange}
+      placeholder="Type your message..."/>
+    <br/><br/>
+    {/*If private selected, message is hidden else message is visible*/}
+
+    <label className="radio-container">Private
+    <input className="radio-btn" type="radio"
+        name="selectedOption"
+        value= "private"
+        onChange={this.onChange}
+        checked={this.state.selectedOption === "private"} />
+        <span className="checkmark"></span>
+        </label>
+
+        <label className="radio-container">Public
+        <input className="radio-btn" type="radio"
+        name="selectedOption"
+        value= "public"
+        onChange={this.onChange}
+        checked={this.state.selectedOption === "public"} />
+        <span className="checkmark"></span>
+        </label>
+        <br/>
+        <br/>
+        <button className="action-menu-btn" onClick={this.handleAdd} type="submit">
+          <i className="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+);
   }
 }
 export default MessageList;

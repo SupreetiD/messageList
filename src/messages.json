@@ -1,32 +1,29 @@
 [
   {
     "id": 1,
-    "message": "gcfgnv dtrydtujvh bnjnuhigyuftydrxdgc h",
-    "name": "ria",
-    "status": "public"
+    "sender": "Abcd",
+    "sender_picture": "https://www.shareicon.net/download/2015/09/18/103157_man_512x512.png",
+    "message": "Goodnight! see you soon. sweet dreams."
   },
   {
     "id": 2,
-    "message": "jzefh jyftdrfcgvjh nbgcytdiujugyftcf vbhkuiyt",
-    "name": "akash",
+    "sender": "Efgh",
+    "sender_picture": "https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807_960_720.png",
+    "message": "see you soon.",
     "status": "public"
   },
   {
     "id": 3,
-    "message": "jzefh fygugyhv jgbjhbuytfvg hvnnkjiuhy",
-    "name": "ria",
-    "status": "private"
-  },
-  {
-    "id": "4",
-    "name": "ria",
-    "message": "gcfgnv vhfgytfiè§yuvf gbjbugyftgvj ",
+    "sender": "Xyzzz",
+    "sender_picture": "https://energie-strategie-liberte.learnybox.com/medias/energie-strategie-liberte/Aime-toi%20pour%20gu%C3%A9rir%20ta%20vie/avatars/teacher-295387_640.png",
+    "message": "Goodnight! see you soon. sweet dreams.",
     "status": "public"
   },
   {
-    "id": "5",
-    "name": "ytfcui",
-    "message": "fxdcftyvgubhikj bvfgdxterctuvyi",
+    "id": 4,
+    "sender": "Mr. Srttt",
+    "sender_picture": "https://energie-strategie-liberte.learnybox.com/medias/energie-strategie-liberte/Aime-toi%20pour%20gu%C3%A9rir%20ta%20vie/avatars/teacher-295387_640.png",
+    "message": "Goodnight! see you soon. sweet dreams.",
     "status": "private"
   }
 ]
